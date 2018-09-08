@@ -10,7 +10,7 @@ public:
 
 	Tile * GetTileAt(int row, int column) const;
 	void Initialise(); // Set up the Tiles for pathfinding
-	void DrawMap();
+	void DrawMap(); // TODO make this into Game
 
 private:
 

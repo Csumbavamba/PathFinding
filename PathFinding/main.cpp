@@ -1,13 +1,14 @@
-#include "Map.h"
+#include "Game.h"
 
 #include <iostream>
 
 int main()
 {
-	Map map;
+	Game game;
 
-	map.Initialise();
-	map.DrawMap();
+	game.Initialise();
+	game.Draw();
+	
 
 	int temp;
 	std::cin >> temp;

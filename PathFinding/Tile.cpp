@@ -1,11 +1,13 @@
 #include "Tile.h"
+#include "Obstacle.h"
+#include "GameObject.h"
 
 
 
 Tile::Tile()
 	:gValue(0)
 	,hValue(0)
-	,walkability(WALKABLE)
+	,isWalkable(true)
 {
 }
 
@@ -29,9 +31,19 @@ int Tile::GetHValue() const
 	return hValue;
 }
 
-Tag Tile::GetWalkability() const
+bool Tile::IsWalkable()
 {
-	return walkability;
+	if (objectOnTile == nullptr)
+	{
+		isWalkable = true;
+	}
+	else
+	{
+		isWalkable = false;
+	}
+		
+
+	return isWalkable;
 }
 
 
@@ -45,7 +57,18 @@ void Tile::SetHValue(int hValue)
 	this->hValue = hValue;
 }
 
-void Tile::SetWalkability(Tag walkability)
+void Tile::SetIsWalkable(bool isWalkable)
 {
-	this->walkability = walkability;
+	this->isWalkable = isWalkable;
+}
+
+
+void Tile::PlaceObject(GameObject * object)
+{
+	objectOnTile = object;
+}
+
+void Tile::RemoveObject()
+{
+	objectOnTile = nullptr;
 }

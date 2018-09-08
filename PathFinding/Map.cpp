@@ -28,6 +28,11 @@ Tile * Map::GetTileAt(int row, int column) const
 	return map[row][column];
 }
 
+//Tile * Map::GetMap() const
+//{
+//	return map;
+//}
+
 void Map::Initialise()
 {
 	for (int i = 0; i < 20; ++i)
@@ -46,7 +51,7 @@ void Map::DrawMap()
 		for (int j = 0; j < 20; ++j)
 		{
 			// TODO make map drawing outside of class
-			if (map[i][j]->GetWalkability() == WALKABLE)
+			if (map[i][j]->IsWalkable() == true)
 			{
 				std::cout << "-";
 			}

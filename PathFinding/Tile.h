@@ -1,10 +1,8 @@
 #pragma once
 
-enum Tag
-{
-	WALKABLE,
-	UNWALKABLE
-};
+class Obstacle;
+class GameObject;
+
 
 class Tile
 {
@@ -16,16 +14,20 @@ public:
 
 	int GetGValue() const;
 	int GetHValue() const;
-	Tag GetWalkability() const;
+	bool IsWalkable();
 
 	void SetGValue(int gValue);
 	void SetHValue(int hValue);
-	void SetWalkability(Tag walkability);
+	void SetIsWalkable(bool isWalkable);
+
+	void PlaceObject(GameObject * object);
+	void RemoveObject();
 
 private:
-
-	Tag walkability;
+	bool isWalkable;
 	int gValue;
 	int hValue;
+
+	GameObject * objectOnTile = nullptr;
 };
 
